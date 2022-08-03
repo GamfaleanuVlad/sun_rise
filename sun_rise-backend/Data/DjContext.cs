@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using sun_rise_backend.Models;
+using sun_rise_backend.DTOs;
 
 namespace sun_rise_backend.Data
 {
@@ -13,7 +13,7 @@ namespace sun_rise_backend.Data
             builder.UseSerialColumns();
         }
 
-        public DbSet<Dj> Djs { get; set; }
+        public DbSet<DjDTO> Djs { get; set; }
     }
 
 }

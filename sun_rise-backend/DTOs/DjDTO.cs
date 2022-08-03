@@ -1,12 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace sun_rise_backend.DTOs
 {
     public record DjDTO
-    {
-        public Guid id { get; init; }
-        public string Name { get; set; }
-        public string? ImageUrl { get; set; }
-        public string[]? Songs { get; set; }
+    {   
+        public long id { get; init; }
+        public string Name { get; set; } = String.Empty;
+        public string Bio { get; set; } = String.Empty;
     }
 }

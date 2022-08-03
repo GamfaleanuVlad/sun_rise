@@ -1,17 +1,19 @@
 using sun_rise_backend.Models;
 using sun_rise_backend.DTOs;
 
-namespace sun_rise_backend{
-public static class Extensions
+namespace sun_rise_backend
 {
-    public static DjDTO ToDTO(this Dj self)
+    public static class Extensions
     {
-        return new DjDTO { 
-                        id = self.id,
-                        ImageUrl = self.ImageUrl,
-                        Name = self.Name,
-                        Songs = self.Songs };
+        public static DjDTO ToDTO(this Dj self)
+        {
+            return new DjDTO
+            {
+                id = self.id,
+                Bio = self.Bio,
+                Name = self.Name
+            };
+        }
     }
-}
 }
 

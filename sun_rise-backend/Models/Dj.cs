@@ -4,11 +4,8 @@ namespace sun_rise_backend.Models
 {
     public record Dj
     {
-        public Guid id { get; init; }
-        public DateTimeOffset dateAdded { get; init; }
-        public DateTimeOffset dateModified { get; set; }
-        public string Name { get; set; }
-        public string? ImageUrl { get; set; }
-        public string[]? Songs { get; set; }
+        public long id { get; init; }
+        public string Name { get; set; } = String.Empty;
+        public string Bio { get; set; } = String.Empty;
     }
 }
