@@ -1,6 +1,8 @@
 using sun_rise_backend.Data;
 using Microsoft.EntityFrameworkCore;
 
+var  PolicyCORS = "localhost";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +13,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DjContext>( o => o.UseNpgsql(builder.Configuration.GetConnectionString("DjsDb")));
 builder.Configuration.AddUserSecrets<Program>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: PolicyCORS,
+                      policy  =>
+                      {
+                          policy.WithOrigins("http://localhost:3000");
+                      });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,5 +36,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(PolicyCORS);
 
 app.Run();
