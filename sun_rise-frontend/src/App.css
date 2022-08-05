@@ -1,38 +1,209 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-size: 62.5%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
   }
 }
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+body {
+  font-size: 1.6rem;
+}
 
-.App-header {
-  background-color: #282c34;
+.grid {
+  display: grid;
+
+  grid-template-areas:
+    "head head head"
+    "side main main"
+    "side main main"
+    "side foot foot";
+  grid-template-columns: 10rem 1fr 1fr;
+  grid-template-rows: 5% 45% 45% 5%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .grid {
+    grid-template-columns: 8rem 1fr 1fr;
+  }
+}
+
+.header {
+  grid-area: head;
+  background-color: rgb(48, 48, 90);
+  
+  display: grid;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo{
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+.footer {
+  grid-area: foot;
+  background-color: rgb(48, 48, 90);
+}
+
+.main {
+  grid-area: main;
+  background-color: rgb(162, 162, 255);
+}
+
+.sidebar {
+  grid-area: side;
+  width: 100%;
+  background-color: rgb(110, 110, 110);
+
+  display: grid;
+  justify-items: center;
+}
+.btn-back{
+  height: 5rem;
+  width: 5rem;
+  margin-top: 10rem;
+
+  color: wheat;
+}
+
+.dj-card__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-items: center;
+  row-gap: 3rem;
+}
+
+.dj-card {
+  width: 10rem;
+  height: 20rem;
+  padding: 3rem;
+  margin: 4rem;
+  justify-items: center;
+  align-items: center;
+
+  background-color: rgb(48, 48, 90);
+  border-radius: 10%;
+
+  display: grid;
+  grid-template-areas:
+    "id . ."
+    "name . ."
+    "controls controls controls";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dj-card__id {
+  font-size: 1.5rem;
+  color: rgb(69, 69, 129);
+
+  grid-area: id;
+}
+
+.dj-card__name {
+  font-size: 2.5rem;
+  color: rgb(107, 107, 153);
+
+  grid-area: name;
+}
+
+.dj-card__controls {
+  display: flex;
+
+  grid-area: controls;
+}
+
+.dj-card__controls > * {
+  height: 4rem;
+  width: 4rem;
+
+  margin: 6px;
+
+  color: wheat;
+}
+
+.dj-main{
+  padding: 5rem;
+  margin: 4rem;
+  margin-left: 30%;
+  margin-right: 30%;
+  justify-items: center;
+  align-items: center;
+
+  row-gap: 3rem;
+
+  background-color: rgb(48, 48, 90);
+  border-radius: 10%;
+
+  display: grid;
+  grid-template-areas:
+    "id name ."
+    "bio bio bio"
+    "controls controls controls";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media only screen and (max-width: 75em) {
+  .dj-main {
+    margin-left: 5%;
+    margin-right: 5%;
   }
 }
+
+
+.dj-main__id {
+  font-size: 5rem;
+  color: rgb(160, 160, 160);
+
+  grid-area: id;
+}
+
+.dj-main__name {
+  font-size: 5rem;
+  color: rgb(107, 107, 153);
+
+  grid-area: name;
+}
+
+.dj-main__bio {
+  font-size:3rem;
+  color: #ffffff;
+
+  grid-area: bio;
+}
+
+.dj-main__controls {
+  display: flex;
+
+  grid-area: controls;
+}
+
+.dj-main__controls > * {
+  height: 5rem;
+  width: 5rem;
+
+  margin: 2rem;
+
+  color: wheat;
+}
+
