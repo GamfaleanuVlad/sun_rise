@@ -21,14 +21,8 @@ type Props = StateProps & DispatchProps;
 
 const DjsGrid = (props: Props)  => {
 
-  const {djs, set} = props
-
-  useEffect(() => {    
-    axios.get(`${API_URL}/djs`).then(rep => {
-      set(rep.data)
-    })
-  }, [])
-
+  const {djs} = props
+  
   return (
     <div className='main dj-card__grid'>
       {djs.map(dj => {

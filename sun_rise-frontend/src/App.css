@@ -207,3 +207,20 @@ body {
   color: wheat;
 }
 
+.dj-add{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dj-add > *{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.big-plus{
+  height: 10rem;
+  width: 10rem;
+  color: rgb(107, 226, 123);
+}

@@ -16,7 +16,7 @@ export const djs = createModel<RootModel>()({
     state: [] as State,
     reducers: {
         set: (state: State, payload: State) => payload,
-        merge: (state: State, payload: Dj) => { return { ...state, payload } },
+        merge: (state: State, payload: Dj) => { return [ ...state, payload ] },
         edit: (state: State, payload: Dj) => state.map(dj => {
             if (dj.id === payload.id)
                 return payload
@@ -25,8 +25,10 @@ export const djs = createModel<RootModel>()({
         delete: (state: State, payload: number) =>  state.filter((item, i) => item.id !== payload)
     },
     effects: (dispatch) => ({
-        async merge(payload: Dj) {
-            await axios.post(`${API_URL}/dj`, payload)
+        async add(payload: Dj) {
+            await axios.post(`${API_URL}/dj`, {name:payload.name, bio:payload.bio}).then((resp) =>{
+                dispatch.djs.merge(resp.data as Dj)
+            })
         },
         async edit(payload: Dj) {
             await axios.put(`${API_URL}/dj/${payload.id}`, payload)

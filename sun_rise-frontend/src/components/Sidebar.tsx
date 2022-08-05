@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { HomeIcon } from '@heroicons/react/solid'
+import { HomeIcon, PlusIcon } from '@heroicons/react/solid'
 
 type Props = {}
 
@@ -9,6 +9,7 @@ const Sidebar = (props: Props) => {
   return (
     <nav className='sidebar'>
       <HomeIcon className='btn-back' onClick={() => navigate("/")}/>
+      <PlusIcon className='btn-back' onClick={() => navigate("/dj/add")}/>
     </nav>
   )
 }
