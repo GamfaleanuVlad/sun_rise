@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.1",
     "@heroicons/react": "^1.0.6",
     "@prisma/client": "^4.1.1",
     "@rematch/core": "^2.2.0",
